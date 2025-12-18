@@ -1,0 +1,12 @@
+mod transform_array_by_parity;
+mod sum_of_all_subset_xor_totals;
+mod date_to_binary;
+mod count_the_number_of_consistent_strings;
+mod bynary_search_tree_to_greater_sum_tree;
+mod reverse_degree_string;
+mod goal_parser_interpretation;
+mod largest_local_values_in_a_matrix;
+mod left_and_right_sum_differences;
+mod count_pairs_whose_sum_is_less_than_target;
+mod minimum_bit_flips_to_convert_number;
+mod two_sums;
