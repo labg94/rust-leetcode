@@ -11,3 +11,4 @@ mod count_pairs_whose_sum_is_less_than_target;
 mod minimum_bit_flips_to_convert_number;
 mod two_sums;
 mod permutation_difference_between_two_strings;
+mod range_sum_of_bst;
