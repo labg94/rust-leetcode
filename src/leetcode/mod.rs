@@ -14,3 +14,4 @@ mod permutation_difference_between_two_strings;
 mod range_sum_of_bst;
 mod smaller_numbers_than_current;
 mod xor_operation_in_array;
+mod minimum_number_of_moves_to_seat_everyone;
