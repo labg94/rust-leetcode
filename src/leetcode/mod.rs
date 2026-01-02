@@ -17,3 +17,4 @@ mod xor_operation_in_array;
 mod minimum_number_of_moves_to_seat_everyone;
 mod decode_xored_array;
 mod split_a_string_in_balanced_strings;
+mod widest_vertical_area_between_two_points_containing_no_points;
