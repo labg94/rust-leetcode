@@ -20,3 +20,4 @@ mod split_a_string_in_balanced_strings;
 mod widest_vertical_area_between_two_points_containing_no_points;
 mod number_of_laser_beams_in_a_bank;
 mod maximum_matrix_sum;
+mod reverse_string_prefix;
