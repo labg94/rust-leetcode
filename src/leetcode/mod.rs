@@ -22,3 +22,4 @@ mod number_of_laser_beams_in_a_bank;
 mod maximum_matrix_sum;
 mod reverse_string_prefix;
 mod macros;
+mod find_the_prefix_common_array_of_two_arrays;
