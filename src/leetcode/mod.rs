@@ -24,3 +24,4 @@ mod reverse_string_prefix;
 mod macros;
 mod find_the_prefix_common_array_of_two_arrays;
 mod final_array_state_after_k_multiplication_operations_i;
+mod mirror_distance_of_an_integer;
