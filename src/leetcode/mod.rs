@@ -28,3 +28,4 @@ mod mirror_distance_of_an_integer;
 mod count_nodes_equal_to_average_of_subtree;
 mod queries_on_number_of_points_inside_a_circle;
 mod find_center_of_star_graph;
+mod remove_outermost_parentheses;
