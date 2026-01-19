@@ -30,3 +30,4 @@ mod queries_on_number_of_points_inside_a_circle;
 mod find_center_of_star_graph;
 mod remove_outermost_parentheses;
 mod reverse_odd_levels_of_binary_tree;
+mod find_indices_of_stable_mountains;
