@@ -32,3 +32,4 @@ mod remove_outermost_parentheses;
 mod reverse_odd_levels_of_binary_tree;
 mod find_indices_of_stable_mountains;
 mod subtract_the_product_and_sum_of_digits_of_an_integer;
+mod minimum_operations_to_exceed_threshold_value_i;
