@@ -1,0 +1,107 @@
+use std::rc::Rc;
+use std::cell::RefCell;
+
+#[derive(Debug, PartialEq, Eq)]
+pub struct TreeNode {
+  pub val: i32,
+  pub left: Option<Rc<RefCell<TreeNode>>>,
+  pub right: Option<Rc<RefCell<TreeNode>>>,
+}
+
+impl TreeNode {
+  #[inline]
+  pub fn new(val: i32) -> Self {
+    TreeNode {
+      val,
+      left: None,
+      right: None
+    }
+  }
+}
+
+struct Solution;
+impl Solution {
+
+    fn get_sum_max_level(node: Option<Rc<RefCell<TreeNode>>>, level: usize, sum: &mut i32, max_lvl: &mut usize) {
+        if let Some(node) = node.as_ref() {
+            let node = node.borrow();
+
+            if level > *max_lvl {
+                *sum = node.val;
+                *max_lvl = level;
+            } else if level == *max_lvl {
+                *sum += node.val;
+            }
+
+            Self::get_sum_max_level(node.left.clone(), level + 1, sum, max_lvl);
+            Self::get_sum_max_level(node.right.clone(), level + 1, sum, max_lvl);
+        }
+    }
+
+    pub fn deepest_leaves_sum(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
+        let mut sum = 0;
+        Self::get_sum_max_level(root, 0, &mut sum, &mut 0);
+        sum
+    }
+
+
+}
+
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use std::collections::VecDeque;
+
+    fn array_to_tree(arr: &[Option<i32>]) -> Option<Rc<RefCell<TreeNode>>> {
+        if arr.is_empty() || arr[0].is_none() {
+            return None;
+        }
+
+        let root = Rc::new(RefCell::new(TreeNode::new(arr[0].unwrap())));
+        let mut queue = VecDeque::new();
+        queue.push_back(root.clone());
+
+        let mut i = 1;
+        while !queue.is_empty() && i < arr.len() {
+            let node = queue.pop_front().unwrap();
+
+            // Add left child
+            if i < arr.len() {
+                if let Some(val) = arr[i] {
+                    let left_child = Rc::new(RefCell::new(TreeNode::new(val)));
+                    node.borrow_mut().left = Some(left_child.clone());
+                    queue.push_back(left_child);
+                }
+                i += 1;
+            }
+
+            // Add right child
+            if i < arr.len() {
+                if let Some(val) = arr[i] {
+                    let right_child = Rc::new(RefCell::new(TreeNode::new(val)));
+                    node.borrow_mut().right = Some(right_child.clone());
+                    queue.push_back(right_child);
+                }
+                i += 1;
+            }
+        }
+
+        Some(root)
+    }
+
+    #[test]
+    fn test_case_1(){
+        let arr = vec![Some(1), Some(2), Some(3), Some(4), Some(5), None, Some(6), Some(7), None, None, None, None, Some(8)];
+        let root = array_to_tree(&arr);
+        assert_eq!(Solution::deepest_leaves_sum(root), 15);
+    }
+
+    #[test]
+    fn test_case_2(){
+        let arr = vec![Some(6), Some(7), Some(8), Some(2), Some(7), Some(1), Some(3), Some(9),None, Some(1), Some(4), None, None, None, Some(5)];
+        let root = array_to_tree(&arr);
+        assert_eq!(Solution::deepest_leaves_sum(root), 19);
+    }
+
+}
