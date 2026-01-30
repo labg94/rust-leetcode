@@ -1,28 +1,8 @@
-
-#[derive(Debug, PartialEq, Eq)]
-pub struct TreeNode {
-  pub val: i32,
-  pub left: Option<Rc<RefCell<TreeNode>>>,
-  pub right: Option<Rc<RefCell<TreeNode>>>,
-}
-
-impl TreeNode {
-  #[inline]
-  pub fn new(val: i32) -> Self {
-    TreeNode {
-      val,
-      left: None,
-      right: None
-    }
-  }
-}
-
+use crate::leetcode::tree_node::TreeNode;
+use std::cell::RefCell;
+use std::rc::Rc;
 
 struct Solution;
-
-use std::rc::Rc;
-use std::cell::RefCell;
-use std::collections::VecDeque;
 
 impl Solution {
     pub fn bst_to_gst(root: Option<Rc<RefCell<TreeNode>>>) -> Option<Rc<RefCell<TreeNode>>> {
@@ -111,46 +91,9 @@ impl Solution {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::leetcode::tree_node::TreeNode;
 
 
-
-    fn array_to_tree(arr: &[Option<i32>]) -> Option<Rc<RefCell<TreeNode>>> {
-        if arr.is_empty() || arr[0].is_none() {
-            return None;
-        }
-
-        let root = Rc::new(RefCell::new(TreeNode::new(arr[0].unwrap())));
-        let mut queue = VecDeque::new();
-        queue.push_back(root.clone());
-
-        let mut i = 1;
-        while !queue.is_empty() && i < arr.len() {
-            let node = queue.pop_front().unwrap();
-
-            // Add left child
-            if i < arr.len() {
-                if let Some(val) = arr[i] {
-                    let left_child = Rc::new(RefCell::new(TreeNode::new(val)));
-                    node.borrow_mut().left = Some(left_child.clone());
-                    queue.push_back(left_child);
-                }
-                i += 1;
-            }
-
-            // Add right child
-            if i < arr.len() {
-                if let Some(val) = arr[i] {
-                    let right_child = Rc::new(RefCell::new(TreeNode::new(val)));
-                    node.borrow_mut().right = Some(right_child.clone());
-                    queue.push_back(right_child);
-                }
-                i += 1;
-            }
-        }
-
-        Some(root)
-    }
-    
     #[test]
     fn case_1() {
         // Input BST: [4,1,6,0,2,5,7,null,null,null,3,null,null,null,8]
@@ -165,8 +108,8 @@ mod tests {
             None, None, None, Some(33), None, None, None, Some(8)
         ];
 
-        let input_tree = array_to_tree(&input);
-        let expected_tree = array_to_tree(&expected);
+        let input_tree = TreeNode::array_to_tree(&input);
+        let expected_tree = TreeNode::array_to_tree(&expected);
 
         let result = Solution::bst_to_gst(input_tree);
 

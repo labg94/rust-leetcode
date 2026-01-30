@@ -24,6 +24,7 @@ mod tests {
         let n = 14;
         let expected = 13;
         let result = Solution::number_of_matches(n);
+        assert_eq!(result, expected);
     }
 
 }

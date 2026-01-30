@@ -1,23 +1,6 @@
-use std::rc::Rc;
+use crate::leetcode::tree_node::TreeNode;
 use std::cell::RefCell;
-
-#[derive(Debug, PartialEq, Eq)]
-pub struct TreeNode {
-  pub val: i32,
-  pub left: Option<Rc<RefCell<TreeNode>>>,
-  pub right: Option<Rc<RefCell<TreeNode>>>,
-}
-
-impl TreeNode {
-  #[inline]
-  pub fn new(val: i32) -> Self {
-    TreeNode {
-      val,
-      left: None,
-      right: None
-    }
-  }
-}
+use std::rc::Rc;
 
 struct Solution;
 impl Solution {
@@ -51,56 +34,19 @@ impl Solution {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use std::collections::VecDeque;
 
-    fn array_to_tree(arr: &[Option<i32>]) -> Option<Rc<RefCell<TreeNode>>> {
-        if arr.is_empty() || arr[0].is_none() {
-            return None;
-        }
-
-        let root = Rc::new(RefCell::new(TreeNode::new(arr[0].unwrap())));
-        let mut queue = VecDeque::new();
-        queue.push_back(root.clone());
-
-        let mut i = 1;
-        while !queue.is_empty() && i < arr.len() {
-            let node = queue.pop_front().unwrap();
-
-            // Add left child
-            if i < arr.len() {
-                if let Some(val) = arr[i] {
-                    let left_child = Rc::new(RefCell::new(TreeNode::new(val)));
-                    node.borrow_mut().left = Some(left_child.clone());
-                    queue.push_back(left_child);
-                }
-                i += 1;
-            }
-
-            // Add right child
-            if i < arr.len() {
-                if let Some(val) = arr[i] {
-                    let right_child = Rc::new(RefCell::new(TreeNode::new(val)));
-                    node.borrow_mut().right = Some(right_child.clone());
-                    queue.push_back(right_child);
-                }
-                i += 1;
-            }
-        }
-
-        Some(root)
-    }
 
     #[test]
     fn test_case_1(){
         let arr = vec![Some(1), Some(2), Some(3), Some(4), Some(5), None, Some(6), Some(7), None, None, None, None, Some(8)];
-        let root = array_to_tree(&arr);
+        let root = TreeNode::array_to_tree(&arr);
         assert_eq!(Solution::deepest_leaves_sum(root), 15);
     }
 
     #[test]
     fn test_case_2(){
         let arr = vec![Some(6), Some(7), Some(8), Some(2), Some(7), Some(1), Some(3), Some(9),None, Some(1), Some(4), None, None, None, Some(5)];
-        let root = array_to_tree(&arr);
+        let root = TreeNode::array_to_tree(&arr);
         assert_eq!(Solution::deepest_leaves_sum(root), 19);
     }
 
