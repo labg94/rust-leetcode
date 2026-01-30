@@ -39,3 +39,4 @@ mod deepest_leaves_sum;
 mod minimum_operations_to_make_array_sum_divisible_by_k;
 mod create_target_array_in_the_given_order;
 mod convert_an_array_into_a_2d_array_with_conditions;
+mod max_increase_to_keep_city_skyline;
