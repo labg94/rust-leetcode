@@ -44,3 +44,4 @@ mod count_of_matches_in_tournament;
 mod find_the_number_of_good_pairs_i;
 mod tree_node;
 mod maximum_binary_tree;
+mod decompress_run_length_encoded_list;
