@@ -46,3 +46,4 @@ mod tree_node;
 mod maximum_binary_tree;
 mod decompress_run_length_encoded_list;
 mod sum_of_values_at_indices_with_k_set_bits;
+mod check_if_two_string_arrays_are_equivalent;
