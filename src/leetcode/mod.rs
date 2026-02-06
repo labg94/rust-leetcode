@@ -49,3 +49,4 @@ mod sum_of_values_at_indices_with_k_set_bits;
 mod check_if_two_string_arrays_are_equivalent;
 mod sort_the_students_by_their_kth_score;
 mod count_the_digits_that_divide_a_number;
+mod sum_of_nodes_with_even_valued_grandparent;
