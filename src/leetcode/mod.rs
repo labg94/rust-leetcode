@@ -52,3 +52,4 @@ mod count_the_digits_that_divide_a_number;
 mod sum_of_nodes_with_even_valued_grandparent;
 mod balance_a_binary_search_tree;
 mod decode_the_message;
+mod sum_multiples;
