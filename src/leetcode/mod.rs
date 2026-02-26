@@ -54,3 +54,4 @@ mod balance_a_binary_search_tree;
 mod decode_the_message;
 mod sum_multiples;
 mod number_of_steps_to_reduce_a_number_to_zero;
+mod construct_smallest_number_from_di_string;

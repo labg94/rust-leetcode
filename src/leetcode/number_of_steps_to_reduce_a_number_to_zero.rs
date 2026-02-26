@@ -30,7 +30,7 @@ impl Solution {
 
         let bit_len = 32 - leading_zeros;
         let ones = n.count_ones();
-        (bit_len - 1 + ones) as i32
+        (bit_len - 1 + ones) as i32 
     }
 }
 
