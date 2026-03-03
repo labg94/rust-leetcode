@@ -56,3 +56,4 @@ mod sum_multiples;
 mod number_of_steps_to_reduce_a_number_to_zero;
 mod construct_smallest_number_from_di_string;
 mod count_good_triplets;
+mod sum_of_variable_length_subarrays;
