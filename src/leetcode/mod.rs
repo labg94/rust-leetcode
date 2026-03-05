@@ -59,3 +59,4 @@ mod count_good_triplets;
 mod sum_of_variable_length_subarrays;
 mod minimum_number_of_operations_to_make_array_xor_equal_to_k;
 mod minimum_number_game;
+mod number_of_arithmetic_triplets;
