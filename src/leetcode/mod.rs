@@ -62,3 +62,4 @@ mod minimum_number_game;
 mod number_of_arithmetic_triplets;
 mod shuffle_string;
 mod count_number_of_pairs_with_absolute_difference_k;
+mod the_k_th_lexicographical_string_of_all_happy_strings_of_length_n;
