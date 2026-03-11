@@ -61,3 +61,4 @@ mod minimum_number_of_operations_to_make_array_xor_equal_to_k;
 mod minimum_number_game;
 mod number_of_arithmetic_triplets;
 mod shuffle_string;
+mod count_number_of_pairs_with_absolute_difference_k;
