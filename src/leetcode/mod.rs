@@ -64,3 +64,4 @@ mod shuffle_string;
 mod count_number_of_pairs_with_absolute_difference_k;
 mod the_k_th_lexicographical_string_of_all_happy_strings_of_length_n;
 mod minimum_average_of_smallest_and_largest_elements;
+mod count_items_matching_a_rule;
