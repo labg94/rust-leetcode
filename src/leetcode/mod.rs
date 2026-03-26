@@ -68,3 +68,4 @@ mod count_items_matching_a_rule;
 mod construct_the_minimum_bitwise_array_i;
 mod weighted_word_mapping;
 mod difference_between_element_sum_and_digit_sum_of_an_array;
+mod count_partitions_with_even_sum_difference;
